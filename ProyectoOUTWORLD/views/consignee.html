@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+  <title>Consignatarios</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet"   href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+  <link rel="stylesheet" href="../style/bootstrap/css/bootstrap.min.css">
+  <script src="../js/jquery/jquery.min.js"></script>
+  <script src="../style/bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body background="#c0c0c0">
+  <div class="container">
+    <div class="d-flex justify-content-center bg-dark text-white h-25 d-inline-block">
+      <h1>Bienvenido al portal de EfevServ</h1>
+    </div>
+    <br>
+    <div class="d-flex flex-row ">
+      <div class="p-4   text-black w-100 d-inline-block">
+        <h3>Gestión Consignatario</h3>
+      </div>
+      <div class="p-4  text-black h-25 d-inline-block">
+        <button type="button" class="btn btn-info btn-lg" id="agregarConsignatario" >Agregar <i class="fa-solid fa-plus"></i></button>
+      </div>
+    </div>
+    <div class="border border-white">
+      <div class="d-flex justify-content-center text-black h-25" id="notaRegistro" >
+        <h4> No hay registro de cosignatarios, deberá agregarlos a traves de botón Agregar+</h4>
+      </div>
+      <table class="table table-striped" id="tablaConsignatarios">
+        <thead>
+          <tr id="cabecerosTabla">
+            <th scope="col">ID</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">ACTIVO</th>
+            <th scope="col">FECHA CREACION</th>
+          </tr>
+        </thead>
+        <tbody id="tableRows">
+        </tbody>
+      </table>
+    </div>
+    <br>
+  </div>
+  <!--MODALES AGREGAR EDITAR--->
+  <!-- inicia cuerpo de modal agregar-->
+  <div class="modal fade" id="modalAgregar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+
+        </div>
+        <div class="modal-body">
+          <h6>Datos Consignatario  agregar</h6>
+          <!-- inicia forma-->
+          <form role="form" id="formularioAgregarConsignatario">
+            <div class="box-body">
+
+              <div class="form-group">
+                <label for="nombreConsignatario">Nombre*</label>
+                <input type="text" class="form-control" id="nombreConsignatario" placeholder="Ingresa nombre">
+                  <span id="nombreError"></span>
+              </div>
+              <div class="form-group">
+                <label for="apellidoPaternoConsignatario">Apellido Paterno*</label>
+                <input type="text" class="form-control" id="apellidoPaternoConsignatario"
+                    placeholder="Ingresa apellido paterno">
+                  <span id="apellidoPaternoError"></span>
+              </div>
+              <div class="form-group">
+                <label for="apellidoMaternoConsignatario">Apellido Materno*</label>
+                <input type="text" class="form-control" id="apellidoMaternoConsignatario"
+                    placeholder="Ingresa apellido materno">
+                  <span id="apellidoMaternoError"></span>
+              </div>
+              <div class="form-group">
+                <label for="selectCliente">Seleccionar cliente</label>
+                <select class="form-control" id="selectCliente" name="consignatarioActivo">
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="consignatarioActivo">Seleccionar El status Consignatario</label>
+                    <select class="form-control" id="consignatarioActivo" name="consignatarioActivo">
+                      <option value="true">Activo</option>
+                      <option value="false">Inactivo</option>
+                </select>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </form>
+          <!-- cierra cuerpo de modal-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">CERRAR</button>
+          <button type="submit" id="submitbtnConsignatarioAgregar" class=" btn btn-primary">Guardar</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <div class="modal fade" id="modalEditar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+
+        </div>
+        <div class="modal-body">
+          <h6>Datos Consignatario Editar</h6>
+          <!-- inicia forma-->
+          <form role="form" id="formularioEditarConsignatario">
+            <div class="box-body">
+              <div class="form-group">
+                <input type="text" class="form-control" id="consignatarioIdEditar" style="display: none;">
+              </div>
+              <div class="form-group">
+                <label for="nombreConsignatarioEditar">Nombre*</label>
+                <input type="text" class="form-control" id="nombreConsignatarioEditar" placeholder="Ingresa nombre">
+                  <span id="nombreErrorEditar"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="selectCliente">Seleccionar cliente</label>
+                <select class="form-control" id="selectClienteEditar" name="consignatarioActivo">
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="consignatarioActivo">Seleccionar El status Consignatario</label>
+                    <select class="form-control" id="consignatarioActivoEditar" name="consignatarioActivoEditar">
+                      <option value="true">Activo</option>
+                      <option value="false">Inactivo</option>
+                </select>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </form>
+          <!-- cierra cuerpo de modal-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">CERRAR</button>
+          <button type="submit" id="submitbtnConsignatarioEditar" class=" btn btn-primary">Guardar</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <script src="../js/consigneeFunctions.js"></script>
+</body>
+
+</html>

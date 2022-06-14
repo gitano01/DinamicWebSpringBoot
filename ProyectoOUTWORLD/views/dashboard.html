@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>dashBoard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet"   href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+  <link rel="stylesheet" href="../style/bootstrap/css/bootstrap.min.css">
+  <script src="../js/jquery/jquery.min.js"></script>
+  <script src="../style/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="d-flex justify-content-center bg-dark text-white h-25 d-inline-block">
+      <h1>Bienvenido al portal de EfevServ</h1>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center  text-black h-25 d-inline-block">
+      <h3>Selecciona el enlace para efectuar la gestión de la información</h3>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+      <div class="d-flex p-2 "><button class="btn btn-outline-info " style="height:300px;width:300px" id="clienteLink">
+          <div>
+            <h3>Clientes</h3>
+          </div>
+        </button></div>
+      <div class="d-flex p-2 "><button class="btn btn-outline-secondary" style="height:300px;width:300px"
+          id="consignatarioLink">
+          <div>
+            <h3>Consignatarios</h3>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="d-flex justify-content-center  text-black h-25 d-inline-block">
+    <h4>*Nota</h3>
+  </div>
+  <div class="container">
+    <div class="d-flex justify-content-center text-black h-25 d-inline-block">
+
+      <p>* El siguiente sistema contiene la representacion de un crud basado en Front End con Java y peticiones ajax</p>
+
+      <p>* De lado del fron se pueden realizar las operaciones de alta baja y consulta</p>
+
+      <p>* El back End en Spring se encuentra preparado para recibir las peticiones de consultas de
+        ABCE(Alta, baja, consulta, edicion)
+        para Clientes y ABC consignatarios</p>
+    </div>
+  </div>
+  <script src="../js/dashBoard.js"></script>
+</body>
+
+</html>
