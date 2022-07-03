@@ -28,6 +28,7 @@ public class ExcelController {
 	
 	@GetMapping("/decargarExcel")
 	public void downloadExcelFile(HttpServletResponse response) throws IOException {
+		//HttpServletResponse response = null;
 		System.out.println("Hola tengo tu arcivo excel, mejora tu codigo para obtenerlo");
 		ByteArrayInputStream byteArrayInputStream = xlService.export();
         response.setContentType("application/octet-stream");
@@ -36,7 +37,8 @@ public class ExcelController {
 	}
 	
 	@PostMapping("/decargarExcelJson")
-	public HttpServletResponse  downloadExcelJsonFile(HttpServletResponse response, List<Contacto> contactos) throws IOException {
+	public HttpServletResponse  downloadExcelJsonFile( HttpServletResponse response ,List<Contacto> contactos) throws IOException {
+		
 		System.out.println("Hola tengo tu arcivo excel, mejora tu codigo para obtenerlo");
 		ByteArrayInputStream byteArrayInputStream = xlService.export(contactos);
         response.setContentType("application/octet-stream");

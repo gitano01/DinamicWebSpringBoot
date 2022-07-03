@@ -57,7 +57,7 @@ $('#downloadExcel').click(function () {
 
     $.ajax({
         type: 'ajax',
-        method: 'post',
+        method: 'get',
         url: 'http://localhost:8081/efevserv/gestion-excel/decargarExcelJSON',
         data: JSON.stringify(json),
         contentType: 'application/json; charset=utf-8',
